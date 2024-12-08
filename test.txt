@@ -1,5 +1,7 @@
-hehehehehehe
-lelelelel
+hello 
+hannzo
+cv
+
 
 first time : static = NULL -> ""
 strjoin ("",Buff)
@@ -10,3 +12,8 @@ else
 	temp = strjoin(static,buff);
 free(static);
 static = temp;
+
+Read data into buf.
+Check if buf contains a newline (\n).
+If yes, append the part of buf up to the newline to store and return store.
+If no newline, append the full buffer to store and continue reading.

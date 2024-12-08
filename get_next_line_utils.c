@@ -21,7 +21,19 @@ size_t	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -33,32 +45,36 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	p = malloc ((char *) (len + 1));
+	p = malloc (sizeof(char) * (len + 1));
 	if (p == NULL)
 		return (NULL);
-	while (s1[i])
+	while (s1[i] && i < len)
 	{
 		p[i] = s1[i];
 		i++;
 	}
 	while (s2[j] && j < len)
-	{
-		p[i] = s2[j];
-		i++;
-		j++;
-	}
+		p[i++] = s2[j++];
 	p[len] = '\0';
 	return (p);
 }
-char	*ft_strchr(const char *s, int c)
+
+char	*ft_strdup(char *str)
 {
-	while (*s)
+	size_t	len;
+	int		i;
+	char	*p;
+
+	i = 0;
+	len = ft_strlen(str);
+	p = malloc (sizeof(char) * len + 1);
+	if (p == NULL)
+		return (NULL);
+	while (str[i])
 	{
-		if (*s == (char)c)
-			return (s);
-		s++;
+		p[i] = str[i];
+		i++;
 	}
-	if (c == '\0')
-		return (s);
-	return Null
+	p[len] = '\0';
+	return (p);
 }
