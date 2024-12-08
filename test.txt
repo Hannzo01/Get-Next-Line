@@ -1,0 +1,12 @@
+hehehehehehe
+lelelelel
+
+first time : static = NULL -> ""
+strjoin ("",Buff)
+
+if(!static)
+	temp = strjoin("",buff);  ft_strdup("")
+else
+	temp = strjoin(static,buff);
+free(static);
+static = temp;
