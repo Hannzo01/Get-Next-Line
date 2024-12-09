@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:24 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/08 11:22:05 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:56:45 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,31 @@ char	*ft_strdup(char *str)
 	}
 	p[len] = '\0';
 	return (p);
+}
+
+char	*ft_substr(char *s, int start, int len)
+{
+	int		i;
+	int		leng;
+	char	*sub;
+
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	i = 0;
+	leng = ft_strlen(s) - start;
+	if (leng >= len)
+		leng = len;
+	sub = malloc(sizeof(char) * leng + 1);
+	if (sub == NULL)
+		return (NULL);
+	while (s[start] && i < leng)
+	{
+		sub[i] = s[start];
+		i++;
+		start++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }
