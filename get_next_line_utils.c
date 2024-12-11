@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:24 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/09 23:44:51 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/11 22:49:40 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,32 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-char	*ft_strjoin(char *s1, char *s2)
+char    *ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
-	char	*p;
+	size_t    len1;
+	size_t    len2;
+	char    *new_str;
+	size_t    j;
+	size_t    i;
 
-	i = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	new_str = (char *)malloc(len1 + len2 + 1);
+	if (!new_str)
+		return (NULL);
+	i = -1;
+	while (++i < len1)
+		new_str[i] = s1[i];
 	j = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	p = malloc (sizeof(char) * (len + 1));
-	if (p == NULL)
-		return (NULL);
-	while (s1[i] && i < len)
+	while (j < len2)
 	{
-		p[i] = s1[i];
-		i++;
+		new_str[i + j] = s2[j];
+		j++;
 	}
-	while (s2[j] && j < len)
-		p[i++] = s2[j++];
-	p[len] = '\0';
-	return (p);
+	new_str[i + j] = '\0';
+	return (new_str);
 }
 
 char	*ft_strdup(char *str)
@@ -79,4 +81,21 @@ char	*ft_strdup(char *str)
 	}
 	p[len] = '\0';
 	return (p);
+}
+
+char	*ft_strndup(const char *str, size_t n)
+{
+	char *dup = (char *)malloc(n + 1);
+	if (!dup) {
+		return NULL;
+	}
+
+	size_t i = 0;
+	while (i < n && str[i] != '\0') {
+		dup[i] = str[i];
+		i++;
+	}
+	dup[i] = '\0';
+
+	return dup;
 }

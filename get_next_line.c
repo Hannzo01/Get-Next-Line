@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/09 23:54:30 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/11 22:54:17 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static char	*get_one_line(int fd, char *store)
 {
 	char	*buf;
 	ssize_t	rr;
+	char *tmp;
 
 	buf = malloc (sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
-	// rr = 1;  while (rr >= 1)
 	while (1)
 	{
 		rr = read(fd, buf, BUFFER_SIZE);
@@ -28,8 +28,13 @@ static char	*get_one_line(int fd, char *store)
 			break;
 		buf[rr] = '\0';
 		if (!store)
-			store = ft_strdup("");
-		store = ft_strjoin(store, buf);
+			store = ft_strdup(buf);
+		else
+		{
+			tmp = ft_strjoin(store, buf);
+			free(store);
+			store = tmp;
+		}
 		if (!store || ft_strchr(store, '\n'))
 			break ;
 	}
@@ -40,7 +45,7 @@ static char	*get_one_line(int fd, char *store)
 	return (store);
 }
 
-char	*remove_after_newline(char *store)
+static char	*remove_after_newline(char *store)
 {
 	char	*line;
 	int		i;
@@ -63,7 +68,7 @@ char	*remove_after_newline(char *store)
 	line[j] = '\0';
 	return (line);
 }
-char	*get_rest(char *store)
+static char	*get_rest(char *store)
 {
 	int		i;
 	int		len;
@@ -79,11 +84,11 @@ char	*get_rest(char *store)
 		i++;
 	while (store[i] && store[i] == '\n')
 		i++;
-	tmp = malloc(sizeof(char) * (i + 1));
+	tmp = malloc(sizeof(char) * (len - i + 1));
 	if (tmp == NULL)
 		return (NULL);
 	while (store[i])
-	{
+	{	
 		i++;
 		tmp[j] = store[i];
 		j++;
@@ -107,15 +112,15 @@ char	*get_next_line(int fd)
 		return (free(store), store = NULL, NULL);
 	return (line);
 }
-int main()
-{
-	int fd = open("test.txt", O_RDONLY);
-	char *store ;
-	while ((store = get_next_line(fd)) != NULL)
-	{
+// int main()
+// {
+// 	int fd = open("test.txt", O_RDONLY);
+// 	char *store ;
+// 	while ((store = get_next_line(fd)) != NULL)
+// 	{
 
-		printf("%s", store);
-		free(store);
-	}
-	close(fd);
-}
+// 		printf("%s", store);
+// 		free(store);
+// 	}
+// 	close(fd);
+// }
