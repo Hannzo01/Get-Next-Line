@@ -6,11 +6,12 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/11 22:54:17 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/12 10:02:10 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+// #include "get_next_line_utils.c"
 
 static char	*get_one_line(int fd, char *store)
 {
@@ -33,6 +34,7 @@ static char	*get_one_line(int fd, char *store)
 		{
 			tmp = ft_strjoin(store, buf);
 			free(store);
+			store = NULL;
 			store = tmp;
 		}
 		if (!store || ft_strchr(store, '\n'))
@@ -57,10 +59,10 @@ static char	*remove_after_newline(char *store)
 		return (NULL);
 	while (store[i] && store[i] != '\n')
 		i++;
-	while (store[i] && store[i] == '\n')
+	if (store[i] == '\n')
 		i++;
 	line = malloc(sizeof(char) * (i + 1));
-	while (j < i + 1)
+	while (j < i)
 	{
 		line[j] = store[j];
 		j++;
@@ -82,7 +84,7 @@ static char	*get_rest(char *store)
 	len = ft_strlen(store);
 	while (store[i] && store[i] != '\n')
 		i++;
-	while (store[i] && store[i] == '\n')
+	if (store[i] == '\n')
 		i++;
 	tmp = malloc(sizeof(char) * (len - i + 1));
 	if (tmp == NULL)
