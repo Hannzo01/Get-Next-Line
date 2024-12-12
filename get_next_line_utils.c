@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:24 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/11 22:49:40 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/12 13:44:59 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	ft_strlen(char *str)
 		i++;
 	return (i);
 }
+
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
@@ -35,13 +36,14 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-char    *ft_strjoin(char *s1, char *s2)
+
+char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t    len1;
-	size_t    len2;
-	char    *new_str;
-	size_t    j;
-	size_t    i;
+	size_t	len1;
+	size_t	len2;
+	char	*new_str;
+	size_t	j;
+	size_t	i;
 
 	if (!s1 && !s2)
 		return (NULL);
@@ -71,7 +73,7 @@ char	*ft_strdup(char *str)
 
 	i = 0;
 	len = ft_strlen(str);
-	p = malloc (sizeof(char) * len + 1);
+	p = malloc(sizeof(char) * len + 1);
 	if (p == NULL)
 		return (NULL);
 	while (str[i])
@@ -81,21 +83,4 @@ char	*ft_strdup(char *str)
 	}
 	p[len] = '\0';
 	return (p);
-}
-
-char	*ft_strndup(const char *str, size_t n)
-{
-	char *dup = (char *)malloc(n + 1);
-	if (!dup) {
-		return NULL;
-	}
-
-	size_t i = 0;
-	while (i < n && str[i] != '\0') {
-		dup[i] = str[i];
-		i++;
-	}
-	dup[i] = '\0';
-
-	return dup;
 }
