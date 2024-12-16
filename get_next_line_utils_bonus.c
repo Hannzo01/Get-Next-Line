@@ -6,11 +6,11 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:30:33 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 11:38:26 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:17:03 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(char *str)
 {
@@ -39,25 +39,24 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	L1;
-	size_t	L2;
+	size_t	l1;
+	size_t	l2;
 	size_t	j;
 	size_t	i;
 	char	*str;
 
-
 	if (!s1 && !s2)
 		return (NULL);
-	L1 = ft_strlen(s1);
-	L2 = ft_strlen(s2);
-	str = (char *)malloc(L1 + L2 + 1);
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	str = (char *)malloc(l1 + l2 + 1);
 	if (!str)
 		return (NULL);
 	i = -1;
-	while (++i < L1)
+	while (++i < l1)
 		str[i] = s1[i];
 	j = 0;
-	while (j < L2)
+	while (j < l2)
 	{
 		str[i + j] = s2[j];
 		j++;
@@ -85,6 +84,7 @@ char	*ft_strdup(char *str)
 	p[len] = '\0';
 	return (p);
 }
+
 char	*handle_buffer(char *store, char *buf)
 {
 	char	*tmp;

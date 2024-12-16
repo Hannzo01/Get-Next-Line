@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:30:39 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 11:52:56 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:03:18 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,26 +104,25 @@ char	*get_next_line(int fd)
 	store[fd] = get_remainder(store[fd]);
 	return (line);
 }
-int main()
-{
-	int fd = open("test.txt", O_RDONLY);
-	int fdd = open("test1.txt", O_RDONLY);
-	char *store ;
+// int main()
+// {
+// 	int fd = open("test.txt", O_RDONLY);
+// 	int fdd = open("test1.txt", O_RDONLY);
+// 	char *store ;
 
-	store = get_next_line(fd);
-	printf("%s", store);
-	store = get_next_line(fdd);
-	printf("%s", store);
-	store = get_next_line(fd);
-	printf("%s", store);
-	store = get_next_line(fdd);
-	printf("%s", store);
-	
-	// while ((store = get_next_line(fd)) != NULL)
-	// {
+// 	store = get_next_line(fd);
+// 	printf("%s", store);
+// 	store = get_next_line(fdd);
+// 	printf("%s", store);
+// 	store = get_next_line(fd);
+// 	printf("%s", store);
+// 	store = get_next_line(fdd);
+// 	printf("%s", store);
+// 	// while ((store = get_next_line(fd)) != NULL)
+// 	// {
 
-	// 	printf("%s", store);
-	// 	free(store);
-	// }
-	close(fd);
-}
+// 	// 	printf("%s", store);
+// 	// 	free(store);
+// 	// }
+// 	close(fd);
+// }

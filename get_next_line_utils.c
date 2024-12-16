@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:24 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/13 10:36:48 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:02:51 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char	*ft_strdup(char *str)
 	p[len] = '\0';
 	return (p);
 }
+
 char	*handle_buffer(char *store, char *buf)
 {
 	char	*tmp;

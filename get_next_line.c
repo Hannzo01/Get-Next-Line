@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 11:14:00 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:04:43 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,15 @@ char	*get_next_line(int fd)
 	store = get_remainder(store);
 	return (line);
 }
-int main()
-{
-	int fd = open("test.txt", O_RDONLY);
-	char *store ;
-	while ((store = get_next_line(fd)) != NULL)
-	{
+// int main()
+// {
+// 	int fd = open("test.txt", O_RDONLY);
+// 	char *store ;
+// 	while ((store = get_next_line(fd)) != NULL)
+// 	{
 
-		printf("%s", store);
-		free(store);
-	}
-	close(fd);
-}
+// 		printf("%s", store);
+// 		free(store);
+// 	}
+// 	close(fd);
+// }

@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:44:23 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 10:07:01 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/16 21:16:45 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 45
 # elif BUFFER_SIZE < 0
-# undef BUFFER_SIZE
-# define BUFFER_SIZE 0
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
 # endif
 
-/* HEADERS */
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-/* FUNCTIONS */
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *str);
