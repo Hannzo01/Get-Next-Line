@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 19:59:24 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/13 10:36:48 by kemzouri         ###   ########.fr       */
+/*   Created: 2024/12/16 11:30:33 by kemzouri          #+#    #+#             */
+/*   Updated: 2024/12/16 11:38:26 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,31 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*new_str;
+	size_t	L1;
+	size_t	L2;
 	size_t	j;
 	size_t	i;
+	char	*str;
+
 
 	if (!s1 && !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	new_str = (char *)malloc(len1 + len2 + 1);
-	if (!new_str)
+	L1 = ft_strlen(s1);
+	L2 = ft_strlen(s2);
+	str = (char *)malloc(L1 + L2 + 1);
+	if (!str)
 		return (NULL);
 	i = -1;
-	while (++i < len1)
-		new_str[i] = s1[i];
+	while (++i < L1)
+		str[i] = s1[i];
 	j = 0;
-	while (j < len2)
+	while (j < L2)
 	{
-		new_str[i + j] = s2[j];
+		str[i + j] = s2[j];
 		j++;
 	}
-	new_str[i + j] = '\0';
-	return (new_str);
+	str[i + j] = '\0';
+	return (str);
 }
 
 char	*ft_strdup(char *str)

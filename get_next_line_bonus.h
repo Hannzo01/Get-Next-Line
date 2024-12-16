@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 13:44:23 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 10:07:01 by kemzouri         ###   ########.fr       */
+/*   Created: 2024/12/16 11:31:00 by kemzouri          #+#    #+#             */
+/*   Updated: 2024/12/16 11:40:21 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # endif
 
 /* HEADERS */
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /* FUNCTIONS */
 char	*ft_strchr(const char *s, int c);
@@ -34,4 +34,5 @@ char	*ft_strdup(char *str);
 char	*ft_substr(char *s, size_t start, int len);
 char	*get_next_line(int fd);
 char	*handle_buffer(char *store, char *buf);
-#endif
+
+#endif 

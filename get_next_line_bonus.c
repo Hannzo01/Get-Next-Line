@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 11:14:00 by kemzouri         ###   ########.fr       */
+/*   Created: 2024/12/16 11:30:39 by kemzouri          #+#    #+#             */
+/*   Updated: 2024/12/16 11:52:56 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,25 +94,36 @@ static char	*get_remainder(char *store)
 
 char	*get_next_line(int fd)
 {
-	static char	*store;
+	static char	*store[1024];
 	char		*line;
 
 	if (fd < 0)
 		return (NULL);
-	store = get_one_line(fd, store);
-	line = remove_after_newline(store);
-	store = get_remainder(store);
+	store[fd] = get_one_line(fd, store[fd]);
+	line = remove_after_newline(store[fd]);
+	store[fd] = get_remainder(store[fd]);
 	return (line);
 }
 int main()
 {
 	int fd = open("test.txt", O_RDONLY);
+	int fdd = open("test1.txt", O_RDONLY);
 	char *store ;
-	while ((store = get_next_line(fd)) != NULL)
-	{
 
-		printf("%s", store);
-		free(store);
-	}
+	store = get_next_line(fd);
+	printf("%s", store);
+	store = get_next_line(fdd);
+	printf("%s", store);
+	store = get_next_line(fd);
+	printf("%s", store);
+	store = get_next_line(fdd);
+	printf("%s", store);
+	
+	// while ((store = get_next_line(fd)) != NULL)
+	// {
+
+	// 	printf("%s", store);
+	// 	free(store);
+	// }
 	close(fd);
 }
