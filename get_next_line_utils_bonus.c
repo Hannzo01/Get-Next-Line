@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:30:33 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 21:17:03 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:43:45 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, char c)
 {
 	while (*s)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
+		if (*s == c)
+			return (s);
 		s++;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
+	if (c == '\0')
+		return (s);
 	return (NULL);
 }
 

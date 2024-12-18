@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:44:23 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/18 16:47:38 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:42:12 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #  undef BUFFER_SIZE
 #  define BUFFER_SIZE 0
 # endif
-
 
 # include <fcntl.h>
 # include <stdio.h>
