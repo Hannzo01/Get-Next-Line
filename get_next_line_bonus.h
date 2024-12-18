@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:31:00 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 21:16:36 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:47:51 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <limits.h>
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);

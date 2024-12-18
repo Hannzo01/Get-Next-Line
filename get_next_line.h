@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 13:44:23 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 21:16:45 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:47:38 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 #  define BUFFER_SIZE 0
 # endif
 
+
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);

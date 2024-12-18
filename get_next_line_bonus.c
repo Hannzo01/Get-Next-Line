@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:30:39 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 21:03:18 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:32:30 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*get_one_line(int fd, char *store)
 	char	*buf;
 	ssize_t	rr;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
 	while (1)
@@ -106,23 +106,18 @@ char	*get_next_line(int fd)
 }
 // int main()
 // {
-// 	int fd = open("test.txt", O_RDONLY);
-// 	int fdd = open("test1.txt", O_RDONLY);
-// 	char *store ;
-
-// 	store = get_next_line(fd);
-// 	printf("%s", store);
-// 	store = get_next_line(fdd);
-// 	printf("%s", store);
-// 	store = get_next_line(fd);
-// 	printf("%s", store);
-// 	store = get_next_line(fdd);
-// 	printf("%s", store);
-// 	// while ((store = get_next_line(fd)) != NULL)
-// 	// {
-
-// 	// 	printf("%s", store);
-// 	// 	free(store);
-// 	// }
-// 	close(fd);
+//   int fd = open("file1.txt", O_RDONLY);
+//   int fd2 = open("file2.txt", O_RDONLY);
+//   char *s = get_next_line(fd);
+//   printf("%s", s);
+//   free(s);
+//   s = get_next_line(fd2);
+//   printf("%s", s);
+//   free(s);
+//   s = get_next_line(fd);
+//   printf("%s", s);
+//   free(s);
+//   printf("\n");
+//   close(fd);
+//   close(fd2);
 // }

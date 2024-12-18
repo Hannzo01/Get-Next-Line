@@ -6,7 +6,7 @@
 /*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 19:59:32 by kemzouri          #+#    #+#             */
-/*   Updated: 2024/12/16 13:04:43 by kemzouri         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:32:17 by kemzouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*get_one_line(int fd, char *store)
 	char	*buf;
 	ssize_t	rr;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
 	while (1)
@@ -106,13 +106,12 @@ char	*get_next_line(int fd)
 }
 // int main()
 // {
-// 	int fd = open("test.txt", O_RDONLY);
-// 	char *store ;
-// 	while ((store = get_next_line(fd)) != NULL)
+// 	int fd = open("text.txt", O_RDONLY);
+// 	char *line ;
+// 	while ((line = get_next_line(fd)) != NULL)
 // 	{
-
-// 		printf("%s", store);
-// 		free(store);
+// 		printf("%s", line);
+// 		free(line);
 // 	}
 // 	close(fd);
 // }
